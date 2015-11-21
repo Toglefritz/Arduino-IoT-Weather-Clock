@@ -18,7 +18,7 @@ This code is licensed under a Creative Commons Attribution-NonCommercial-ShareAl
 < https://creativecommons.org/licenses/by-nc-sa/4.0/ >
     
 ## PARTS
- * Arduino Uno R3: < https://www.sparkfun.com/products/11021 >
+* Arduino Uno R3: < https://www.sparkfun.com/products/11021 >
 * SparkFun Wifi Shield (CC3000):  < https://www.sparkfun.com/products/12071 >
 * SparkFun Humidity and Temperature Sensor:  < https://www.sparkfun.com/products/12064 >
 * SparkFun Ambient Light Sensor:  < https://www.sparkfun.com/products/8688 >  
@@ -57,19 +57,19 @@ The CC3000 WiFi shield obviously just plugs into the Arduino Uno the same way as
 Before upload the sketch to an Arduino Uno board, some values in the sketch must be adjusted to match 
 your unique details:
     
-  85   char ssid[] = "yourSSID";  // The name of your home WiFi
-  86   char password[] = "yourPassword";  // Your WiFi passphrase
+        85   char ssid[] = "yourSSID";  // The name of your home WiFi
+        86   char password[] = "yourPassword";  // Your WiFi passphrase
   
-  94   String tempUnit = "C";   // Units for temperature readings. Choose C for Celsius or F for Fahrenheit
+        94   String tempUnit = "C";   // Units for temperature readings. Choose C for Celsius or F for Fahrenheit
   
-  109  char thingName[] = "yourThingName_randomString";
+        109  char thingName[] = "yourThingName_randomString";
   
 ### Adding custom sensors
 You can add just about any sensor you want to your Arduino clock/home monitor. All you need to do to make it
 work is (1) within loop() take a reading from the sensor, and (2) add the reading to the Dweet POST request
 by adding something like:
 
-  client.print(&customSensorName=);
-  client.println(customSensorReadingVar);
+    client.print(&customSensorName=);
+    client.println(customSensorReadingVar);
 
 Add this after the similar lines for the exisitng sensors, but before the client.println(" HTTP/1.1"); line.
